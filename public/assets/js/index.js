@@ -1,7 +1,5 @@
 $(document).ready(function() {
-    //   $(".tap-target").tapTarget();
-    //   $(".tap-target").tapTarget("open");
-  
+
     $(".modal").modal();
   
     $(".open-notes").on("click", function(event) {
