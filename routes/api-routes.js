@@ -22,18 +22,18 @@ module.exports = function(app) {
       let results = [];
       console.log("Search For blogs");
       $(".content").each(function(i, element) {
-          console.log(element)
+        //   console.log(element)
         let url = $(element)
           .find(".article-title")
           .children("p")
           .attr("href");
         let title = $(element)
-          .find(".article-title")
-          .children("h4")
+          .find(".article-title a")
+        //   .children("h4 a")
           .text();
         let summary = $(element)
-          .find(".article-entry")
-          .attr("p")
+          .find(".article-entry p")
+        //   .attr("p")
           .text();
         let image = $(element)
           .find(".article-image")
@@ -44,17 +44,17 @@ module.exports = function(app) {
           summary: summary,
           image: image,
         };
+        console.log(result)
+        // db.Article.create({
+        //   title: title,
+        //   url: url,
+        //   summary: summary,
+        //   image: image,
+        // })
 
-        db.Article.create({
-          title: title,
-          url: url,
-          summary: summary,
-          image: image,
-        })
-
-          .then(dbArticle => {
-            console.log(dbArticle);
-          })
+        //   .then(dbArticle => {
+        //     console.log(dbArticle);
+        //   })
 
           .catch(err => {
             res.json(500, err);
